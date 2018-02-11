@@ -30,29 +30,20 @@ class FootyTalk::CLI
 
       case input
       when "1"
-        puts "This is the English Premier League:"
-        puts "Current Standings:"
-        puts "Select from Options"
+        FootyTalk::AllLeagues.epl
 
       when '2'
-        puts "This is La Liga:"
-        puts "Current Standings:"
-        puts "Select from Options"
+        FootyTalk::AllLeagues.laLiga
 
       when '3'
-        puts "This is Sirie A:"
-        puts "Current Standings:"
-        puts "Select from Options"
+        FootyTalk::AllLeagues.serieA
 
       when '4'
-        puts "This is Bundesliga:"
-        puts "Current Standings:"
-        puts "Select from Options"
+        FootyTalk::AllLeagues.bundesliga
 
       when '5'
-        puts "This is Ligue 1:"
-        puts "Current Standings:"
-        puts "Select from Options"
+        FootyTalk::AllLeagues.ligue1
+
       else
         puts "Invalid Entry, try again:"
     end
