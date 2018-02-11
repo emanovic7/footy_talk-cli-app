@@ -1,5 +1,2 @@
-require "footy_talk/version"
-
-module FootyTalk
-  # Your code goes here...
-end
+require_relative "./footy_talk/version"
+require_relative "./footy_talk/cli"
