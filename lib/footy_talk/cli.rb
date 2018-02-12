@@ -46,8 +46,8 @@ class FootyTalk::CLI
 
       else
         puts "Invalid Entry, try again:"
+      end
     end
-  end
 end
 
   def goodbye
