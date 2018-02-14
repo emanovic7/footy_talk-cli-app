@@ -6,7 +6,7 @@ require 'pry'
 
 
 class FootyTalk::AllLeagues
-  attr_accessor: :team, :position 
+  attr_accessor :team, :position 
   def self.epl
     doc = Nokogiri::HTML(open("http://www.espn.com/soccer/table/_/league/eng.1"))
 

@@ -4,7 +4,6 @@ class FootyTalk::CLI
     greeting
     show_leagues
     leagues
-    goodbye
   end
 
   def greeting
@@ -44,6 +43,9 @@ class FootyTalk::CLI
       when '5'
         FootyTalk::AllLeagues.ligue1
 
+      when 'exit'
+        goodbye
+
       else
         puts "Invalid Entry, try again:"
       end
@@ -51,7 +53,7 @@ class FootyTalk::CLI
 end
 
   def goodbye
-    puts "see you later"
+    puts "Bye, see you later"
   end
 
 end
