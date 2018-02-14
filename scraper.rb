@@ -6,14 +6,9 @@ require 'pry'
 
 doc = Nokogiri::HTML(open("http://www.espn.com/soccer/table/_/league/eng.1"))
 
-standings = doc.search("section#main-container.page-container span.long-caption").text
-puts standings
+name = doc.search("section#main-container h1").text
 
-position = doc.search("section#main-container.page-container span.number")
-position.each do |number|
-    puts number.text
-
-end
+puts name
 
 #categories = doc.search("section#main-container.page-container span.team-names")[0].text
 #puts categories

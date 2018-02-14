@@ -10,11 +10,11 @@ require_relative "./spain"
 
 
 class FootyTalk::AllLeagues
-  attr_accessor :team, :position
+  #attr_accessor :team, :position
 
   def self.epl
     @teams = FootyTalk::England.teams
-    puts FootyTalk::England.blah
+    puts FootyTalk::England.standings
   end
 
   def self.laLiga

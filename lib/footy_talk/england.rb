@@ -7,7 +7,7 @@ class FootyTalk::England
 
   attr_accessor :name, :position, :points, :goals_conceded, :goals_scored, :highest_scorer, :next_match
 
-  doc = Nokogiri::HTML(open("http://www.espn.com/soccer/table/_/league/eng.1"))
+  @doc = Nokogiri::HTML(open("http://www.espn.com/soccer/table/_/league/eng.1"))
 
 
     def self.teams
@@ -20,12 +20,13 @@ class FootyTalk::England
       @team_1.next_match = "Arsenal"
       @team_1.highest_scorer = "Alexis Sanchez"
 
-      @team_2 = self.new
-      @team_2.name = " "
+      #@team_2 = self.new
+      #@team_2.name = " "
     end
 
-    def self.blah
-      puts @team_1.name
+    def self.standings
+      puts "Welcome to the English Premier League"
+      puts @doc.search("section#main-container h1").text
     end
 
 
