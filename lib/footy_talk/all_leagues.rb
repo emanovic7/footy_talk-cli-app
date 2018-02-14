@@ -28,15 +28,13 @@ class FootyTalk::AllLeagues
   end
 
   def self.bundesliga
-    puts "This is bundesliga:"
-    puts "Current Standings:"
-    puts "Select from Options"
+    @teams = FootyTalk::Germany.teams
+    puts FootyTalk::Germany.standings
   end
 
   def self.ligue1
-    puts "This is ligue1:"
-    puts "Current Standings:"
-    puts "Select from Options"
+    @teams = FootyTalk::France.teams
+    puts FootyTalk::France.standings
   end
 
 
