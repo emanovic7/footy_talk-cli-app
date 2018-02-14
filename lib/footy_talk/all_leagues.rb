@@ -23,9 +23,8 @@ class FootyTalk::AllLeagues
   end
 
   def self.serieA
-    puts "This is serieA:"
-    puts "Current Standings:"
-    puts "Select from Options"
+    @teams = FootyTalk::Italy.teams
+    puts FootyTalk::Italy.standings
   end
 
   def self.bundesliga
