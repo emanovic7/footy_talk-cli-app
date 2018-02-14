@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 
 
-class FootyTalk::Germany
+class FootyTalk::Italy
 
   attr_accessor :name, :position, :points, :goals_conceded, :goals_scored, :highest_scorer, :next_match
 

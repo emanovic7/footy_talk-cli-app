@@ -18,9 +18,8 @@ class FootyTalk::AllLeagues
   end
 
   def self.laLiga
-    puts "This is La Liga:"
-    puts "Current Standings:"
-    puts "Select from Options"
+    @teams = FootyTalk::Spain.teams
+    puts FootyTalk::Spain.standings
   end
 
   def self.serieA
