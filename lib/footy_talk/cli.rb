@@ -2,17 +2,12 @@ class FootyTalk::CLI
 
   def intro
     greeting
-    show_leagues
     leagues
   end
 
   def greeting
-    puts "Welcome to Footy Talk, your quick access to all stats football."
-    #puts "Pick a league below: "
-  end
-
-  def show_leagues
     puts <<-DOC
+    Welcome to Footy Talk, your quick access to all stats football.
       1. English Premier League: United Kingdom
       2. La Liga: Spain
       3. Serie A: Italy
@@ -22,7 +17,7 @@ class FootyTalk::CLI
   end
 
   def leagues
-    puts "Choose the league you'd you need information on, or type enter to exit "
+    puts "Choose the league you'd you need information on, type enter to exit, or type menu to go back "
     input =  nil
     while input != "exit"
       input = gets.strip
@@ -42,6 +37,9 @@ class FootyTalk::CLI
 
       when '5'
         FootyTalk::AllLeagues.ligue1
+
+      when 'menu'
+        greeting
 
       when 'exit'
         goodbye

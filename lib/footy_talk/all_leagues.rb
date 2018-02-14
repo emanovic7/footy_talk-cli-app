@@ -1,24 +1,20 @@
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
-require_relative './footy_talk/all_teams'
+require_relative "./england"
+require_relative "./france"
+require_relative "./germany"
+require_relative "./italy"
+require_relative "./spain"
 
 
 
 class FootyTalk::AllLeagues
   attr_accessor :team, :position
+
   def self.epl
-    doc = Nokogiri::HTML(open("http://www.espn.com/soccer/table/_/league/eng.1"))
-
-    title = doc.search("section#main-container.page-container span.long-caption").text
-    puts title
-    puts "Current Standings: "
-    position = doc.search("section#main-container.page-container span.number").text
-    categories = doc.search("section#main-container.page-container span.team-names")[0].text
-    puts "#{position[0]} - #{categories}."
-
-    puts "Select from Options"
+    @teams = FootyTalk::England.teams
+    puts FootyTalk::England.blah
   end
 
   def self.laLiga
