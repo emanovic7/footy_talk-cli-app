@@ -7,7 +7,18 @@ Footy Talk
 -stub out interface
 -start making things real
 -discover objects
--program 
+-program
+
+
+What's a team?
+-Has a name
+-Has a standing
+-Has points
+-Has goals conceded
+-Has goals scored
+-Has highest scorer
+-Has next match 
+
 
 
 
@@ -25,3 +36,7 @@ Top stats: goals, cards, assists, etc
 Schedule
 Last Five league winners.
 Stats from last 5 seasons?
+
+league? has
+team
+positions
