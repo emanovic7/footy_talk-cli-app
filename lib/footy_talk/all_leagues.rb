@@ -15,6 +15,7 @@ class FootyTalk::AllLeagues
   def self.epl
     @teams = FootyTalk::England.teams
     puts FootyTalk::England.standings
+    puts FootyTalk::England.fixtures
   end
 
   def self.laLiga

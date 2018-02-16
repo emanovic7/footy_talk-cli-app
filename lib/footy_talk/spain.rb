@@ -15,6 +15,10 @@ class FootyTalk::Spain
   def self.standings
     puts "Welcome to La Liga"
     puts @doc.search("section#main-container h1").text
+    standings = @doc.search("section#main-container span.team-names")
+    standings.each do |name|
+      puts name.text
+    end
   end
 
 
