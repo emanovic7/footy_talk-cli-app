@@ -13,11 +13,12 @@ class FootyTalk::CLI
       3. Serie A: Italy
       4. Bundesliga: Germany
       5. Ligue 1: France
+    Choose the league you'd you need information on,
+    type enter to exit, or type menu to go back.
     DOC
   end
 
   def leagues
-    puts "Choose the league you'd you need information on, type enter to exit, or type menu to go back "
     input =  nil
     while input != "exit"
       input = gets.strip

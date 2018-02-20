@@ -33,7 +33,7 @@ end
 =end
 
 
-@dok = Nokogiri::HTML(open("http://www.espnfc.us/english-premier-league/23/statistics/scorers"))
+@dok = Nokogiri::HTML(open("http://www.espnfc.us/english-premier-league/23/statistics/assists?season=2017"))
   stats = @dok.search("div#stats-toggle.toggle li")[1]
   puts stats.text
   puts "Name --- Team --- Goals"
@@ -66,9 +66,15 @@ player_3
 =end
 
 
-statsss = @dok.search("div#stats-top-scorers tr")
+statsss = @dok.search("div#stats-top-assists tr")
 some = []
 statsss.each do |one|
   some << one.text.gsub(/\s+/, " ")
 end
 puts some[1..5]
+
+document = Nokogiri::HTML(open("http://www.espnfc.us/english-premier-league/23/table"))
+table = document.search("td.team")
+table.each do |team|
+  puts team.text.strip#.gsub(/\s+/, " ")
+end

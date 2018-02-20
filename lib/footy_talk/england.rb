@@ -7,8 +7,6 @@ class FootyTalk::England
 
   attr_accessor :name, :position, :points, :goals_conceded, :goals_scored, :highest_scorer, :next_match
 
-  @doc = Nokogiri::HTML(open("http://www.espn.com/soccer/table/_/league/eng.1"))
-  @fix = Nokogiri::HTML(open("http://www.goal.com/en-us/premier-league/fixtures-results/2kwbbcootiqqgmrzs6o5inle5"))
 
     def self.teams
       @team_1 = self.new
@@ -19,15 +17,12 @@ class FootyTalk::England
       @team_1.goals_conceded = "2"
       @team_1.next_match = "Arsenal"
       @team_1.highest_scorer = "Alexis Sanchez"
-
-      #@team_2 = self.new
-      #@team_2.name = " "
     end
 
     def self.standings
+      doc = Nokogiri::HTML(open("http://www.espnfc.us/english-premier-league/23/table"))
       puts "Welcome to the English Premier League"
-      puts @doc.search("section#main-container h1").text
-      standings = @doc.search("section#main-container span.team-names")
+      standings = doc.search("td.team")
       standings.each do |name|
         puts name.text.strip
       end
@@ -52,11 +47,22 @@ class FootyTalk::England
     puts names[1..5]
   end
 
+  def self.top_assists
+    doc = Nokogiri::HTML(open("http://www.espnfc.us/english-premier-league/23/statistics/assists?season=2017"))
+    assisters = doc.search("div#stats-top-assists tr")
+    names = []
+    assisters.each do |assister|
+      names << assister.text.gsub(/\s+/, " ")
+    end
+    puts names[1..5]
+  end
+
   def self.statistics
     puts <<-DOC
-    Welcome to Footy Talk, your quick access to all stats football.
+    Pick from the Premier league's:
       1. Top Scorers
       2. Top Assists
+    Type menu to go back.
     DOC
 
     input = nil
