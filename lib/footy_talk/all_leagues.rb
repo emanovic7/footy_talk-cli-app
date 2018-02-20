@@ -15,7 +15,28 @@ class FootyTalk::AllLeagues
   def self.epl
     @teams = FootyTalk::England.teams
     puts FootyTalk::England.standings
-    puts FootyTalk::England.fixtures
+    puts FootyTalk::England.statistics
+=begin
+    puts <<-DOC
+    Pick from the follwing:
+    1. Standings
+    2. Results
+    3. Fixtures
+    DOC
+
+    input = nil
+    while input != "exit"
+      input = gets.strip
+      case 'input'
+        when "1"
+        puts FootyTalk::England.standings
+        when '2'
+        puts FootyTalk::England.fixtures
+        #when 'exit'
+         #menu
+      end
+    end
+=end
   end
 
   def self.laLiga

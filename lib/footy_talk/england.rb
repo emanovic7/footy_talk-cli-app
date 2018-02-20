@@ -32,7 +32,7 @@ class FootyTalk::England
         puts name.text
       end
     end
-
+=begin
     def self.fixtures
       puts "These are the Week's Results"
       results = @fix.search("div.main-content div.match-row.status-pld")
@@ -40,7 +40,11 @@ class FootyTalk::England
         puts result.text
       end
     end
+=end
 
+  def self.statistics
+    puts "Choose from the following stats, or menu to return: "
+  end
 
 
 
