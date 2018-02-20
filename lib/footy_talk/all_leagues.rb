@@ -16,47 +16,30 @@ class FootyTalk::AllLeagues
     @teams = FootyTalk::England.teams
     puts FootyTalk::England.standings
     puts FootyTalk::England.statistics
-=begin
-    puts <<-DOC
-    Pick from the follwing:
-    1. Standings
-    2. Results
-    3. Fixtures
-    DOC
-
-    input = nil
-    while input != "exit"
-      input = gets.strip
-      case 'input'
-        when "1"
-        puts FootyTalk::England.standings
-        when '2'
-        puts FootyTalk::England.fixtures
-        #when 'exit'
-         #menu
-      end
-    end
-=end
   end
 
   def self.laLiga
     @teams = FootyTalk::Spain.teams
     puts FootyTalk::Spain.standings
+    puts FootyTalk::Spain.statistics
   end
 
   def self.serieA
     @teams = FootyTalk::Italy.teams
     puts FootyTalk::Italy.standings
+    puts FootyTalk::Italy.statistics
   end
 
   def self.bundesliga
     @teams = FootyTalk::Germany.teams
     puts FootyTalk::Germany.standings
+    puts FootyTalk::Germany.statistics
   end
 
   def self.ligue1
     @teams = FootyTalk::France.teams
     puts FootyTalk::France.standings
+    puts FootyTalk::France.statistics
   end
 
 
