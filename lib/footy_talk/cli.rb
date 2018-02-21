@@ -6,7 +6,7 @@ class FootyTalk::CLI
   end
 
   def greeting
-    puts <<-DOC
+    puts <<-DOC.gsub /^\s*/, ''
     Welcome to Footy Talk, your quick access to all stats football.
       1. English Premier League: United Kingdom
       2. La Liga: Spain

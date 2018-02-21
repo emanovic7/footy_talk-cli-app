@@ -73,8 +73,10 @@ statsss.each do |one|
 end
 puts some[1..5]
 
-document = Nokogiri::HTML(open("http://www.espnfc.us/english-premier-league/23/table"))
-table = document.search("td.team")
+document = Nokogiri::HTML(open("http://www.espn.com/soccer/table/_/league/eng.1"))
+title = document.search("h2.table-caption").text
+puts title
+table = document.search("span.team-names")
 table.each do |team|
-  puts team.text.strip#.gsub(/\s+/, " ")
+  puts team.text
 end

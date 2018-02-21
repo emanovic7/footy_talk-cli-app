@@ -12,42 +12,16 @@ class FootyTalk::Italy
   def self.teams
     @team_1 = self.new
   end
+
   def self.standings
-    puts "Welcome to Serie A"
-    puts @doc.search("section#main-container h1").text
-    standings = @doc.search("section#main-container span.team-names")
-    standings.each do |name|
-      puts name.text
-    end
-  end
-
-
-  def self.statistics
-    puts <<-DOC
-    Pick from Serie A's:
-      1. Top Scorers
-      2. Top Assists
-    Type menu to go back.
-    DOC
-
-    input = nil
-    while input != "menu"
-      input = gets.strip
-      case input
-      when "1"
-        top_scorers
-      when "2"
-        top_assists
-      when "menu"
-        puts <<-DOC
-        Welcome to Footy Talk, your quick access to all stats football.
-          1. English Premier League: United Kingdom
-          2. La Liga: Spain
-          3. Serie A: Italy
-          4. Bundesliga: Germany
-          5. Ligue 1: France
-        DOC
-      end
+    doc = Nokogiri::HTML(open("http://www.espn.com/soccer/standings/_/league/ita.1"))
+    title = doc.search("h2.table-caption").text
+    puts title
+    puts "Current Standings: "
+    puts "                   "
+    table = doc.search("span.team-names")
+    table.each do |team|
+      puts team.text
     end
   end
 
@@ -57,7 +31,7 @@ class FootyTalk::Italy
     scorers = doc.search("div#stats-top-scorers tr")
     names = []
     scorers.each do |scorer|
-      names << scorer.text.gsub(/\s+/, " ")
+      names << scorer.text.gsub(/^\s+/, " ")
     end
     puts names[1..5]
   end
@@ -67,10 +41,43 @@ class FootyTalk::Italy
     assisters = doc.search("div#stats-top-assists tr")
     names = []
     assisters.each do |assister|
-      names << assister.text.gsub(/\s+/, " ")
+      names << assister.text.gsub(/^\s+/, " ")
     end
     puts names[1..5]
   end
+
+  def self.statistics
+    input = nil
+    while input != 'menu'
+      puts <<-DOC.gsub /^\s*/, ''
+      Pick from the Seria A's:
+      1. Top Scorers
+      2. Top Assists
+      Type menu to go back.
+      DOC
+      input = gets.strip
+      case input
+      when "1"
+        top_scorers
+        puts "        "
+      when "2"
+        top_assists
+        puts "        "
+      when 'menu'
+        puts <<-DOC.gsub /^\s*/, ''
+        Welcome to Footy Talk, your quick access to all stats football.
+          1. English Premier League: United Kingdom
+          2. La Liga: Spain
+          3. Serie A: Italy
+          4. Bundesliga: Germany
+          5. Ligue 1: France
+        Choose the league you'd you need information on,
+        type enter to exit, or type menu to go back.
+        DOC
+      end
+    end
+  end
+
 
 
 end
