@@ -8,13 +8,14 @@ class FootyTalk::CLI
   def greeting
     puts <<-DOC.gsub /^\s*/, ''
     Welcome to Footy Talk, your quick access to all stats football.
+    ***************
+    Choose the league you'd you need information on,
+    type enter to exit, or type menu to go back.
       1. English Premier League: United Kingdom
       2. La Liga: Spain
       3. Serie A: Italy
       4. Bundesliga: Germany
       5. Ligue 1: France
-    Choose the league you'd you need information on,
-    type enter to exit, or type menu to go back.
     DOC
   end
 
@@ -52,7 +53,7 @@ class FootyTalk::CLI
 end
 
   def goodbye
-    puts "Bye, see you later"
+    puts "Goodbye, see you later"
   end
 
 end

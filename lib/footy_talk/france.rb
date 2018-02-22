@@ -28,6 +28,8 @@ class FootyTalk::France
   def self.top_scorers
     doc = Nokogiri::HTML(open("http://www.espnfc.us/french-ligue-1/9/statistics/scorers"))
     scorers = doc.search("div#stats-top-scorers tr")
+    puts "Top Scorers: "
+    puts "-------------"
     names = []
     scorers.each do |scorer|
       names << scorer.text.gsub(/^\s+/, " ")
@@ -38,6 +40,8 @@ class FootyTalk::France
   def self.top_assists
     doc = Nokogiri::HTML(open("http://www.espnfc.us/french-ligue-1/9/statistics/assists"))
     assisters = doc.search("div#stats-top-assists tr")
+    puts "Assists: "
+    puts "-------------"
     names = []
     assisters.each do |assister|
       names << assister.text.gsub(/^\s+/, " ")
@@ -69,13 +73,14 @@ class FootyTalk::France
       when 'menu'
         puts <<-DOC.gsub /^\s*/, ''
         Welcome to Footy Talk, your quick access to all stats football.
+        ***************
+        Choose the league you'd you need information on,
+        type enter to exit, or type menu to go back.
           1. English Premier League: United Kingdom
           2. La Liga: Spain
           3. Serie A: Italy
           4. Bundesliga: Germany
           5. Ligue 1: France
-        Choose the league you'd you need information on,
-        type enter to exit, or type menu to go back.
         DOC
       end
     end
